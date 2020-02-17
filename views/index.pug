@@ -1,0 +1,50 @@
+extends layout
+
+block content
+  //- h1= title
+  //- p Welcom #{title}
+  
+  div.form-container
+    button(onclick='showLogin()')#show-login Login  
+    button(onclick='showSignup()')#show-signup Sign-up
+
+    form.index-form#form-login
+      label(for="l-email") E-mail
+      input(type="email", id="l-email", name="l-email", placeholder="email@example.com")
+
+      label(for="l-password") Password
+      input(type="password", id="l-password", name="l-password" placeholder="Your password")
+
+      button(type="submit") Login
+
+    form.index-form#form-signup
+      label(for="s-username") Username
+      input(type="text", name="s-username", placeholder="Your name")
+
+      label(for="s-email") E-mail
+      input(type="email", name="s-email", id="s-email", placeholder="email@example.com")
+
+      label(for="s-password") Password
+      input(type="password", name="s-password", id="s-password", placeholder="Your password")
+
+      button(type="submit") Sign-up
+
+    script.
+      var formLogin = document.getElementById('form-login')
+      var formSignup = document.getElementById('form-signup')
+      var btnShowLogin = document.getElementById('show-login')
+      var btnShowSignup = document.getElementById('show-signup')
+      
+      function showLogin () {
+        formLogin.style.display = 'block'
+        formSignup.style.display = 'none'
+        btnShowLogin.style.backgroundColor = '#FFA500'
+        btnShowSignup.style.backgroundColor = '#141433'
+      }
+
+      function showSignup () {
+        formSignup.style.display = 'block'
+        formLogin.style.display = 'none'
+        btnShowSignup.style.backgroundColor = '#FFA500'
+        btnShowLogin.style.backgroundColor = '#141433'
+      }
